@@ -41,9 +41,20 @@
                 flex: 2;
             }
         }
+        @media(max-width: 599px) {
+            .left {
+                display: none;
+            }
+            .container.show-menu .left {
+                display: block;
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #eee;
+            }
+        }
         img {
-            width: 150px;
-            height: 150px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
             margin-bottom: 20px;
             border: 3px solid #fff;
@@ -92,10 +103,27 @@
         .profile-links a:hover {
             text-decoration: underline;
         }
+        .menu-button {
+            display: none;
+            background-color: #CC0000;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+        }
+        @media(max-width: 599px) {
+            .menu-button {
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
+    <button class="menu-button" onclick="toggleMenu()">☰</button>
+    <div class="container" id="container">
         <div class="left">
             <img src="Profile.jpg" alt="Zane Kun Li">
             <div class="name">Zane Kun Li</div>
@@ -118,5 +146,10 @@
             </div>
         </div>
     </div>
+    <script>
+        function toggleMenu() {
+            document.getElementById('container').classList.toggle('show-menu');
+        }
+    </script>
 </body>
 </html>
