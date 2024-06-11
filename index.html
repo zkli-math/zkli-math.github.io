@@ -13,6 +13,7 @@
         }
         .container {
             display: flex;
+            flex-wrap: wrap;
             max-width: 800px;
             margin: 0 auto;
             background-color: #fff;
@@ -20,19 +21,29 @@
             border-radius: 10px;
             overflow: hidden;
         }
-        .left {
-            flex: 1;
+        .left, .right {
             padding: 20px;
+        }
+        .left {
             text-align: center;
-            border-right: 1px solid #eee;
+            border-bottom: 1px solid #eee;
         }
         .right {
-            flex: 2;
-            padding: 20px;
+            text-align: left;
+        }
+        @media(min-width: 600px) {
+            .left {
+                flex: 1;
+                border-right: 1px solid #eee;
+                border-bottom: none;
+            }
+            .right {
+                flex: 2;
+            }
         }
         img {
-            width: 200px;
-            height: 200px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             margin-bottom: 20px;
             border: 3px solid #fff;
@@ -58,7 +69,7 @@
         }
         .links a {
             display: inline-block;
-            margin-right: 10px;
+            margin: 5px 5px 0 0;
             padding: 8px 16px;
             background-color: #CC0000;
             color: #fff;
@@ -96,7 +107,7 @@
         </div>
         <div class="right">
             <p class="bio">I am an Assistant Professor in the Department of Mathematics at North Carolina State University. I received my PhD in 2019 from UCLA, where I was advised by <a href="https://www.math.ucla.edu/~tao/">Terence Tao</a>. Previously I was a postdoc at Indiana University Bloomington and the University of Wisconsin-Madison.</p> 
-            <p class="bio">I am interested in harmonic analysis and its applications to combinatorics, number theory, and PDE. My research is supported by NSF Award <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2409803" data-type="URL" data-id="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2311174">DMS-2409803</a>.</p>
+            <p class="bio">I am interested in harmonic analysis and its applications to combinatorics, number theory, and PDE. My research is supported by NSF Award <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2409803">DMS-2409803</a>.</p>
             <p class="bio">In Fall 2024, I am teaching Math 501: Advanced Mathematics for Engineers and Scientists I.</p>
             <p class="bio">I am an organizer of the Stochastics/Discrete Analysis Seminar at NC State, the <a href="https://sites.google.com/view/o-a-r-s">Online Analysis Research Seminar</a>, and also the AIM Research Community on the <a href="https://aimath.org/programs/researchcommunities/fourierrestriction/">Fourier restriction conjecture and related problems</a>.</p>
             <div class="links">
