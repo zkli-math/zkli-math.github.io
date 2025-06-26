@@ -1,266 +1,407 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Papers</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
-            padding: 20px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 10px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        a {
-            color: #007bff;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        a:hover {
-            color: #0056b3;
-        }
-        .links {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        @media (max-width: 599px) {
-            th, td {
-                display: block;
-                width: 100%;
-                box-sizing: border-box;
-            }
-            th {
-                display: none;
-            }
-            td {
-                border: none;
-                position: relative;
-                padding-left: 50%;
-                text-align: left;
-            }
-            td:before {
-                content: attr(data-label);
-                position: absolute;
-                left: 10px;
-                width: calc(50% - 20px);
-                white-space: nowrap;
-                font-weight: bold;
-            }
-            .links {
-                justify-content: center;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Papers</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #fdfdfd;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+      line-height: 1.6;
+      box-sizing: border-box;
+    }
+    h2 {
+        font-size: 1.8em;
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 0.5rem;
+    }
+    a {
+      color: #b00;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Table Styles */
+    .responsive-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1em;
+    }
+    .responsive-table thead {
+        border-bottom: 2px solid #ccc;
+    }
+    .responsive-table th {
+        text-align: left;
+        padding: 12px;
+        font-size: 1.1em;
+        color: #333;
+    }
+    .responsive-table td {
+        padding: 12px;
+        vertical-align: top;
+        font-size: 0.95em;
+    }
+    .responsive-table tbody tr {
+        border-bottom: 1px solid #eee;
+    }
+    .responsive-table tbody tr:last-child {
+        border-bottom: none;
+    }
+    .paper-title {
+        font-weight: bold;
+    }
+    .paper-publication {
+        font-style: italic;
+        color: #555;
+        margin-top: 4px;
+    }
+    .paper-authors {
+        color: #555;
+    }
+    .paper-links a {
+        display: inline-block;
+        margin-right: 12px;
+        white-space: nowrap;
+    }
+
+    /* Responsive Styles for Smartphone */
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+      h2 {
+        font-size: 1.5em;
+      }
+      .responsive-table thead {
+        display: none;
+      }
+      .responsive-table, .responsive-table tbody, .responsive-table tr, .responsive-table td {
+        display: block;
+        width: 100%;
+      }
+      .responsive-table tr {
+        border: 1px solid #eee;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        padding: 1rem;
+        box-sizing: border-box;
+      }
+      .responsive-table td {
+        padding: 8px 0;
+        border: none;
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+      }
+      .responsive-table td:before {
+        content: attr(data-label);
+        font-weight: bold;
+        width: 80px;
+        min-width: 80px;
+        margin-right: 10px;
+        color: #333;
+      }
+      .paper-title, .paper-publication, .paper-authors {
+          font-size: 1em;
+      }
+      .responsive-table td[data-label="Authors"] span,
+      .responsive-table td[data-label="Title"] div {
+          flex: 1;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Papers</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Links</th>
-                    <th>Article</th>
-                    <th>Co-authors</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td data-label="Links">
-                        <div class="links">
-                            <a href="https://arxiv.org/abs/2506.16750">arXiv</a>
-                        </div>
-                    </td>
-                    <td data-label="Article">An improved example for an autoconvolution inequality, submitted.</td>
-                    <td data-label="Co-authors">Christopher Boyer</td>
-                </tr>
-                <tr>
-                    <td data-label="Links">
-                        <div class="links">
-                            <a href="https://arxiv.org/abs/2310.15306">arXiv</a>
-                        </div>
-                    </td>
-                    <td data-label="Article">Strichartz inequalities: some recent developments, to appear in a memorial volume dedicated to Robert Strichartz.</td>
-                    <td data-label="Co-authors">Jianhui Li, Po-Lam Yung</td>
-                </tr>
-                <tr>
-                    <td data-label="Links">
-                        <div class="links">
-                            <a href="https://arxiv.org/abs/2303.04773">arXiv</a>
-                            <a href="https://doi.org/10.1093/imrn/rnad226">journal</a>
-                        </div>
-                    </td>
-                    <td data-label="Article">Mixed norm l^2 decoupling for paraboloids, International Mathematics Research Notices, Vol. 2023, no. 20, 17972-18000.</td>
-                    <td data-label="Co-authors">Shival Dasu, Hongki Jung, José Madrid</td>
-                </tr>
-                <tr>
-                    <td data-label="Links">
-                        <div class="links">
-                            <a href="https://arxiv.org/abs/2209.01644">arXiv</a>
-                        </div>
-                    </td>
-                    <td data-label="Article">An introduction to decoupling and harmonic analysis over Q_p, AMS Contemporary Mathematics 792 (2024), 67-94.</td>
-                    <td data-label="Co-authors"></td>
-                </tr>
-                <tr>
-                    <td data-label="Links">
-                        <div class="links">
-                            <a href="https://arxiv.org/abs/2207.01097">arXiv</a>
-                            <a href="https://doi.org/10.1112/mtk.12231">journal</a>
-                        </div>
-                    </td>
-                    <td data-label="Article">A decoupling interpretation of an old argument for Vinogradov's Mean Value Theorem, Mathematika 70 (2024), no.1, e12231.</td>
-                    <td data-label="Co-authors">Brian Cook, Kevin Hughes, Akshat Mudgal, Olivier Robert, Po-Lam Yung</td>
-                </tr>
-                <tr>
-                    <td data-label="Links">
-                        <div class="links">
-                            <a href="https://arxiv.org/abs/2103.09795">arXiv</a>
-                            <a href="https://dx.doi.org/10.4310/MRL.2023.v30.n5.a4">journal</a>
-                        </div>
-                    </td>
-                    <td data-label="Article">Improved discrete restriction for the parabola, Mathematical Research Letters 30 (2023), no. 5, 1375-1409.</td>
-                    <td data-label="Co-authors">Shaoming Guo, Po-Lam Yung</td>
-                </tr>
-                <tr>
-                    <td data-label="Links">
-                        <div class="links">
-                            <a href="https://arxiv.org/abs/2012.11458">arXiv</a>
-                            <a href="https://doi.org/10.1007/s00209-021-02950-0">journal</a>
-                        </div>
-                    </td>
-                    <td data-label="Article">Decoupling for fractal subsets of the parabola, Mathematische Zeitschrift 301 (2022), 1851–1879.</td>
-                    <td data-label="Co-authors">Alan Chang, Jaume de Dios Pont, Rachel Greenfeld, Asgar Jamneshan, José Madrid</td>
-                </tr>
-                <tr>
-                    <td data-label="Links">
-                        <div class="links">
-                            <a href="https://arxiv.org/abs/1912.09798">arXiv</a>
-                            <a href="https://doi.org/10.1353/ajm.2021.0048">journal</a>
-                        </div>
-                    </td>
-                    <td data-label="Article">A short proof of l^2 decoupling for the moment curve, American Journal of Mathematics 143 (2021), no. 6, 1983–1998.</td>
-                    <td data-label="Co-authors">Shaoming Guo, Po-Lam Yung, Pavel Zorin-Kranich</td>
-                </tr>
-                <tr>
-                    <td data-label="Links">
-                        <div class="links">
-                            <a href="https://arxiv.org/abs/1906.07989">arXiv</a>
-                            <a href="https://doi.org/10.1090/tran/8363">journal</a>
-                        </div>
-                    </td>
-                    <td data-label="Article">A bilinear proof of decoupling for the cubic moment curve, Transactions of the American Mathematical Society, 374 (2021), no. 8, 5405–5432.</td>
-                    <td data-label="Co-authors">Shaoming Guo, Po-Lam Yung</td>
-                </tr>
-                <tr>
-                    <td data-label="Links">
-                        <div class="links">
-                            <a href="https://arxiv.org/abs/1805.10551">arXiv</a>
-                            <a href="https://doi.org/10.4171/rmi/1248">journal</a>
-                        </div>
-                    </td>
-                    <td data-label="Article">An l^2 decoupling interpretation of efficient congruencing: the parabola, Revista Matematica Iberoamericana, 37 (2021), no. 5, 1761–1802.</td>
-                    <td data-label="Co-authors"></td>
-                </tr>
-                <tr>
-                    <td data-label="Links">
-                        <div class="links">
-                            <a href="https://arxiv.org/abs/1711.01202">arXiv</a>
-                            <a href="https://doi.org/10.1112/mtk.12038">journal</a>
-                        </div>
-                    </td>
-                    <td data-label="Article">Effective l^2 decoupling for the parabola, Mathematika 66 (2020), no. 3, 681–712.</td>
-                    <td data-label="Co-authors">Appendix joint with Jean Bourgain</td>
-                </tr>
-                <tr>
-                    <td data-label="Links">
-                        <div class="links">
-                            <a href="https://escholarship.org/uc/item/0cz3756c">eScholarship</a>
-                        </div>
-                    </td>
-                    <td data-label="Article">Decoupling for the parabola and connections to efficient congruencing, PhD Thesis, 2019.</td>
-                    <td data-label="Co-authors"></td>
-                </tr>
-                <tr>
-                    <td data-label="Links">
-                        <div class="links">
-                            <a href="https://arxiv.org/abs/1311.5306">arXiv</a>
-                            <a href="https://doi.org/10.1142/S1793042114500213">journal</a>
-                        </div>
-                    </td>
-                    <td data-label="Article">Quadratic twists of elliptic curves with 3-Selmer rank 1, International Journal of Number Theory, 10 (2014), no. 5, 1191–1217.</td>
-                    <td data-label="Co-authors"></td>
-                </tr>
-                <tr>
-                    <td data-label="Links">
-                        <div class="links">
-                            <a href="https://arxiv.org/abs/1207.5169">arXiv</a>
-                            <a href="https://doi.org/10.1090/S0025-5718-2014-02804-4">journal</a>
-                        </div>
-                    </td>
-                    <td data-label="Article">Elliptic curves with full 2-torsion and maximal adelic Galois representations, Mathematics of Computation, 83 (2014), no. 290, 2925–2591.</td>
-                    <td data-label="Co-authors">David Corwin, Tony Feng, Sarah Trebat-Leder</td>
-                </tr>
-                <tr>
-                    <td data-label="Links">
-                        <div class="links">
-                            <a href="https://arxiv.org/abs/1304.0203">arXiv</a>
-                            <a href="https://doi.org/10.1016/j.jnt.2013.02.001">journal</a>
-                        </div>
-                    </td>
-                    <td data-label="Article">Arithmetic properties of Picard-Fuchs equations and holonomic recurrences, Journal of Number Theory, 133 (2013), no. 8, 2770–2793.</td>
-                    <td data-label="Co-authors">Alexander W. Walker</td>
-                </tr>
-                <tr>
-                    <td data-label="Links">
-                        <div class="links">
-                            <a href="http://www.m-hikari.com/ija/ija-2010/ija-5-8-2010/liIJA5-8-2010.pdf">journal</a>
-                        </div>
-                    </td>
-                    <td data-label="Article">A normal form for cubic surfaces, International Journal of Algebra, 4 (2010), no. 5, 233–239.</td>
-                    <td data-label="Co-authors"></td>
-                </tr>
-                <tr>
-                    <td data-label="Links">
-                        <div class="links">
-                            <a href="https://doi.org/10.1016/j.jpaa.2010.02.013">journal</a>
-                        </div>
-                    </td>
-                    <td data-label="Article">On a special case of the intersection of quadric and cubic surfaces, Journal of Pure and Applied Algebra, 214 (2010), no. 11, 2078–2086.</td>
-                    <td data-label="Co-authors"></td>
-                </tr>
-                <tr>
-                    <td data-label="Links">
-                        <div class="links">
-                            <a href="https://doi.org/10.1016/j.ejc.2008.10.005">journal</a>
-                        </div>
-                    </td>
-                    <td data-label="Article">Counting powers of words in monoids, European Journal of Combinatorics, 30 (2009), no. 5, 1297–1308.</td>
-                    <td data-label="Co-authors">Stephen P. Humphries</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+  <div class="container">
+    <h2>Papers</h2>
+    
+    <table class="responsive-table">
+        <thead>
+            <tr>
+                <th>Article</th>
+                <th>Co-authors</th>
+                <th>Links</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td data-label="Title">
+                    <div>
+                        <div class="paper-title">An improved example for an autoconvolution inequality</div>
+						<div class="paper-publication">Submitted.</div>
+                    </div>
+                </td>
+                <td data-label="Authors"><span class="paper-authors">Christopher Boyer</span></td>
+                <td data-label="Links">
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2506.16750">[arXiv]</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td data-label="Title">
+                    <div>
+                        <div class="paper-title">Strichartz inequalities: some recent developments</div>
+						<div class="paper-publication">to appear in a memorial volume dedicated to Robert Strichartz.</div>
+                    </div>
+                </td>
+                <td data-label="Authors"><span class="paper-authors">Jianhui Li, Po-Lam Yung</span></td>
+                <td data-label="Links">
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2310.15306">[arXiv]</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td data-label="Title">
+                    <div>
+                        <div class="paper-title">Mixed norm l^2 decoupling for paraboloids</div>
+                        <div class="paper-publication">International Mathematics Research Notices, Vol. 2023, no. 20, 17972-18000.</div>
+                    </div>
+                </td>
+                <td data-label="Authors"><span class="paper-authors">Shival Dasu, Hongki Jung, José Madrid</span></td>
+                <td data-label="Links">
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2303.04773">[arXiv]</a>
+                        <a href="https://doi.org/10.1093/imrn/rnad226">[journal]</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td data-label="Title">
+                    <div>
+                        <div class="paper-title">An introduction to decoupling and harmonic analysis over Q_p</div>
+                        <div class="paper-publication">AMS Contemporary Mathematics 792 (2024), 67-94.</div>
+                    </div>
+                </td>
+                <td data-label="Authors"><span class="paper-authors"></span></td>
+                <td data-label="Links">
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2209.01644">[arXiv]</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td data-label="Title">
+                    <div>
+                        <div class="paper-title">A decoupling interpretation of an old argument for Vinogradov's Mean Value Theorem</div>
+                        <div class="paper-publication">Mathematika 70 (2024), no.1, e12231.</div>
+                    </div>
+                </td>
+                <td data-label="Authors"><span class="paper-authors">Brian Cook, Kevin Hughes, Akshat Mudgal, Olivier Robert, Po-Lam Yung</span></td>
+                <td data-label="Links">
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2207.01097">[arXiv]</a>
+                        <a href="https://doi.org/10.1112/mtk.12231">[journal]</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td data-label="Title">
+                    <div>
+                        <div class="paper-title">Improved discrete restriction for the parabola</div>
+                        <div class="paper-publication">Mathematical Research Letters 30 (2023), no. 5, 1375-1409.</div>
+                    </div>
+                </td>
+                <td data-label="Authors"><span class="paper-authors">Shaoming Guo, Po-Lam Yung</span></td>
+                <td data-label="Links">
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2103.09795">[arXiv]</a>
+                        <a href="https://dx.doi.org/10.4310/MRL.2023.v30.n5.a4">[journal]</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td data-label="Title">
+                    <div>
+                        <div class="paper-title">Decoupling for fractal subsets of the parabola</div>
+                        <div class="paper-publication">Mathematische Zeitschrift 301 (2022), 1851–1879.</div>
+                    </div>
+                </td>
+                <td data-label="Authors"><span class="paper-authors">Alan Chang, Jaume de Dios Pont, Rachel Greenfeld, Asgar Jamneshan, José Madrid</span></td>
+                <td data-label="Links">
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/2012.11458">[arXiv]</a>
+                        <a href="https://doi.org/10.1007/s00209-021-02950-0">[journal]</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td data-label="Title">
+                    <div>
+                        <div class="paper-title">A short proof of l^2 decoupling for the moment curve</div>
+                        <div class="paper-publication">American Journal of Mathematics 143 (2021), no. 6, 1983–1998.</div>
+                    </div>
+                </td>
+                <td data-label="Authors"><span class="paper-authors">Shaoming Guo, Po-Lam Yung, Pavel Zorin-Kranich</span></td>
+                <td data-label="Links">
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/1912.09798">[arXiv]</a>
+                        <a href="https://doi.org/10.1353/ajm.2021.0048">[journal]</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td data-label="Title">
+                    <div>
+                        <div class="paper-title">A bilinear proof of decoupling for the cubic moment curve</div>
+                        <div class="paper-publication">Transactions of the American Mathematical Society, 374 (2021), no. 8, 5405–5432.</div>
+                    </div>
+                </td>
+                <td data-label="Authors"><span class="paper-authors">Shaoming Guo, Po-Lam Yung</span></td>
+                <td data-label="Links">
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/1906.07989">[arXiv]</a>
+                        <a href="https://doi.org/10.1090/tran/8363">[journal]</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td data-label="Title">
+                    <div>
+                        <div class="paper-title">An l^2 decoupling interpretation of efficient congruencing: the parabola</div>
+                        <div class="paper-publication">Revista Matematica Iberoamericana, 37 (2021), no. 5, 1761–1802.</div>
+                    </div>
+                </td>
+                <td data-label="Authors"><span class="paper-authors"></span></td>
+                <td data-label="Links">
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/1805.10551">[arXiv]</a>
+                        <a href="https://doi.org/10.4171/rmi/1248">[journal]</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td data-label="Title">
+                    <div>
+                        <div class="paper-title">Effective l^2 decoupling for the parabola</div>
+                        <div class="paper-publication">Mathematika 66 (2020), no. 3, 681–712.</div>
+                    </div>
+                </td>
+                <td data-label="Authors"><span class="paper-authors">Appendix joint with Jean Bourgain</span></td>
+                <td data-label="Links">
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/1711.01202">[arXiv]</a>
+                        <a href="https://doi.org/10.1112/mtk.12038">[journal]</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td data-label="Title">
+                    <div>
+                        <div class="paper-title">Decoupling for the parabola and connections to efficient congruencing</div>
+                        <div class="paper-publication">PhD Thesis, 2019.</div>
+                    </div>
+                </td>
+                <td data-label="Authors"><span class="paper-authors"></span></td>
+                <td data-label="Links">
+                    <div class="paper-links">
+                        <a href="https://escholarship.org/uc/item/0cz3756c">[eScholarship]</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td data-label="Title">
+                    <div>
+                        <div class="paper-title">Quadratic twists of elliptic curves with 3-Selmer rank 1</div>
+                        <div class="paper-publication">International Journal of Number Theory, 10 (2014), no. 5, 1191–1217.</div>
+                    </div>
+                </td>
+                <td data-label="Authors"><span class="paper-authors"></span></td>
+                <td data-label="Links">
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/1311.5306">[arXiv]</a>
+                        <a href="https://doi.org/10.1142/S1793042114500213">[journal]</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td data-label="Title">
+                    <div>
+                        <div class="paper-title">Elliptic curves with full 2-torsion and maximal adelic Galois representations</div>
+                        <div class="paper-publication">Mathematics of Computation, 83 (2014), no. 290, 2925–2951.</div>
+                    </div>
+                </td>
+                <td data-label="Authors"><span class="paper-authors">David Corwin, Tony Feng, Sarah Trebat-Leder</span></td>
+                <td data-label="Links">
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/1207.5169">[arXiv]</a>
+                        <a href="https://doi.org/10.1090/S0025-5718-2014-02804-4">[journal]</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td data-label="Title">
+                    <div>
+                        <div class="paper-title">Arithmetic properties of Picard-Fuchs equations and holonomic recurrences</div>
+                        <div class="paper-publication">Journal of Number Theory, 133 (2013), no. 8, 2770–2793.</div>
+                    </div>
+                </td>
+                <td data-label="Authors"><span class="paper-authors">Alexander W. Walker</span></td>
+                <td data-label="Links">
+                    <div class="paper-links">
+                        <a href="https://arxiv.org/abs/1304.0203">[arXiv]</a>
+                        <a href="https://doi.org/10.1016/j.jnt.2013.02.001">[journal]</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td data-label="Title">
+                    <div>
+                        <div class="paper-title">A normal form for cubic surfaces</div>
+                        <div class="paper-publication">International Journal of Algebra, 4 (2010), no. 5, 233–239.</div>
+                    </div>
+                </td>
+                <td data-label="Authors"><span class="paper-authors"></span></td>
+                <td data-label="Links">
+                    <div class="paper-links">
+                        <a href="http://www.m-hikari.com/ija/ija-2010/ija-5-8-2010/liIJA5-8-2010.pdf">[journal]</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td data-label="Title">
+                    <div>
+                        <div class="paper-title">On a special case of the intersection of quadric and cubic surfaces</div>
+                        <div class="paper-publication">Journal of Pure and Applied Algebra, 214 (2010), no. 11, 2078–2086.</div>
+                    </div>
+                </td>
+                <td data-label="Authors"><span class="paper-authors"></span></td>
+                <td data-label="Links">
+                    <div class="paper-links">
+                        <a href="https://doi.org/10.1016/j.jpaa.2010.02.013">[journal]</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td data-label="Title">
+                    <div>
+                        <div class="paper-title">Counting powers of words in monoids</div>
+                        <div class="paper-publication">European Journal of Combinatorics, 30 (2009), no. 5, 1297–1308.</div>
+                    </div>
+                </td>
+                <td data-label="Authors"><span class="paper-authors">Stephen P. Humphries</span></td>
+                <td data-label="Links">
+                    <div class="paper-links">
+                        <a href="https://doi.org/10.1016/j.ejc.2008.10.005">[journal]</a>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
 </body>
 </html>
