@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Los Angeles Food</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #fdfdfd;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+      line-height: 1.6;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin: 0 0 0.5rem;
+    }
+
+    h2 {
+      font-size: 1.6em;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0.5rem;
+    }
+
+    .intro {
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+
+    a {
+      color: #b00;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .responsive-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.5rem;
+    }
+
+    .responsive-table thead {
+      border-bottom: 2px solid #ccc;
+    }
+
+    .responsive-table th {
+      text-align: left;
+      padding: 12px;
+      font-size: 1.05em;
+      color: #333;
+    }
+
+    .responsive-table td {
+      padding: 12px;
+      vertical-align: top;
+      font-size: 0.95em;
+    }
+
+    .responsive-table tbody tr {
+      border-bottom: 1px solid #eee;
+    }
+
+    .responsive-table tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    .restaurant-name {
+      font-weight: bold;
+    }
+
+    .restaurant-notes {
+      color: #555;
+    }
+
+    .map-link {
+      white-space: nowrap;
+    }
+
+    .links {
+      text-align: center;
+      margin: 2rem 0 0;
+    }
+
+    .links a {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.4rem 0.8rem;
+      background: #b00;
+      color: #fff;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 1rem;
+      }
+
+      h1 {
+        font-size: 1.8em;
+      }
+
+      h2 {
+        font-size: 1.4em;
+      }
+
+      .responsive-table thead {
+        display: none;
+      }
+
+      .responsive-table,
+      .responsive-table tbody,
+      .responsive-table tr,
+      .responsive-table td {
+        display: block;
+        width: 100%;
+      }
+
+      .responsive-table tr {
+        border: 1px solid #eee;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        padding: 1rem;
+        box-sizing: border-box;
+      }
+
+      .responsive-table td {
+        padding: 6px 0;
+        border: none;
+      }
+
+      .responsive-table td::before {
+        content: attr(data-label);
+        display: block;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 2px;
+      }
+
+      .responsive-table td[data-label="Restaurant"]::before {
+        display: none;
+      }
+
+      .restaurant-name {
+        font-size: 1.05em;
+      }
+
+      .links a {
+        display: block;
+        margin: 0.5rem auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section>
+      <h2>San Gabriel Valley</h2>
+      <table class="responsive-table">
+        <thead>
+          <tr>
+            <th>Restaurant</th>
+            <th>Notes</th>
+            <th>Map</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Restaurant"><div class="restaurant-name">Mama Lu's Dumpling House (一口福)</div></td>
+            <td data-label="Notes"><div class="restaurant-notes">牛肉卷饼 is quite good, there are multiple branches nearby, go to this particular one</div></td>
+            <td data-label="Map"><a class="map-link" href="https://maps.app.goo.gl/UFcg5ZWAFBQEaecn7" target="_blank" rel="noopener noreferrer">[Google Maps]</a></td>
+          </tr>
+          <tr>
+            <td data-label="Restaurant"><div class="restaurant-name">Tasty Dining (一品香)</div></td>
+            <td data-label="Notes"><div class="restaurant-notes">Specializes in 干锅, unlike the ones on the East Coast, it already comes with some basic veggies, you just need to pick the meat + spice level, I also add in 2-3 more things like 海带结 or 宽粉 or 冻豆腐 but that's just me</div></td>
+            <td data-label="Map"><a class="map-link" href="https://maps.app.goo.gl/uxFt3HPXfNGzAALq8" target="_blank" rel="noopener noreferrer">[Google Maps]</a></td>
+          </tr>
+          <tr>
+            <td data-label="Restaurant"><div class="restaurant-name">Five Star Seafood Restaurant</div></td>
+            <td data-label="Notes"><div class="restaurant-notes">Used to be across the street at the 99 Ranch in 全统plaza but looks like their redeveloping so the restaurant moved here, standard push cart dim sum that I would go really often</div></td>
+            <td data-label="Map"><a class="map-link" href="https://maps.app.goo.gl/CQYscedtyEg9dbwc6" target="_blank" rel="noopener noreferrer">[Google Maps]</a></td>
+          </tr>
+          <tr>
+            <td data-label="Restaurant"><div class="restaurant-name">Bistro Na's</div></td>
+            <td data-label="Notes"><div class="restaurant-notes">宫廷菜, interesting environment to eat in</div></td>
+            <td data-label="Map"><a class="map-link" href="https://maps.app.goo.gl/QgkN6fWuAuCcFZFB9" target="_blank" rel="noopener noreferrer">[Google Maps]</a></td>
+          </tr>
+          <tr>
+            <td data-label="Restaurant"><div class="restaurant-name">Beijing Pie House</div></td>
+            <td data-label="Notes"><div class="restaurant-notes">馅饼 + 小米粥 (not sure why only 10 reviews, it's been around for quite a while)</div></td>
+            <td data-label="Map"><a class="map-link" href="https://maps.app.goo.gl/NX7bNiiBAdQ5Dtqy7" target="_blank" rel="noopener noreferrer">[Google Maps]</a></td>
+          </tr>
+          <tr>
+            <td data-label="Restaurant"><div class="restaurant-name">Fortune No 1</div></td>
+            <td data-label="Notes"><div class="restaurant-notes">天津早餐</div></td>
+            <td data-label="Map"><a class="map-link" href="https://maps.app.goo.gl/8rouRos5Kra9ecEM7" target="_blank" rel="noopener noreferrer">[Google Maps]</a></td>
+          </tr>
+          <tr>
+            <td data-label="Restaurant"><div class="restaurant-name">Huge Tree Pasty</div></td>
+            <td data-label="Notes"><div class="restaurant-notes">紫米饭团 + 米浆 is a must, cash only</div></td>
+            <td data-label="Map"><a class="map-link" href="https://maps.app.goo.gl/VsUiL5thdnxkWrKq5" target="_blank" rel="noopener noreferrer">[Google Maps]</a></td>
+          </tr>
+          <tr>
+            <td data-label="Restaurant"><div class="restaurant-name">Hunan Restaurant</div></td>
+            <td data-label="Notes"><div class="restaurant-notes">No frills restaurant, definitely get a dish with 腊肉 here</div></td>
+            <td data-label="Map"><a class="map-link" href="https://maps.app.goo.gl/s5H8C8k91uiQFXPP8" target="_blank" rel="noopener noreferrer">[Google Maps]</a></td>
+          </tr>
+          <tr>
+            <td data-label="Restaurant"><div class="restaurant-name">Yunnan Restaurant (云南过桥园)</div></td>
+            <td data-label="Notes"><div class="restaurant-notes">Order a bowl of rice noodle, but also definitely get some of the cold dishes at the counter</div></td>
+            <td data-label="Map"><a class="map-link" href="https://maps.app.goo.gl/9cmPXEsr2jNU62Gq5" target="_blank" rel="noopener noreferrer">[Google Maps]</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>LA Koreatown</h2>
+      <table class="responsive-table">
+        <thead>
+          <tr>
+            <th>Restaurant</th>
+            <th>Notes</th>
+            <th>Map</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Restaurant"><div class="restaurant-name">Chunju Han-Il Kwan</div></td>
+            <td data-label="Notes"><div class="restaurant-notes">Go here for the shared 2-3 person soups paired with a seafood pancake</div></td>
+            <td data-label="Map"><a class="map-link" href="https://maps.app.goo.gl/DsFo2roT2C9qQDJX7" target="_blank" rel="noopener noreferrer">[Google Maps]</a></td>
+          </tr>
+          <tr>
+            <td data-label="Restaurant"><div class="restaurant-name">Myung In Dumplings</div></td>
+            <td data-label="Notes"><div class="restaurant-notes">东北大包子, I have the suspicion that the owners/waiters speak Chinese (but that's from a number of years ago)</div></td>
+            <td data-label="Map"><a class="map-link" href="https://maps.app.goo.gl/eQtcFgKGxjLP7WnE7" target="_blank" rel="noopener noreferrer">[Google Maps]</a></td>
+          </tr>
+          <tr>
+            <td data-label="Restaurant"><div class="restaurant-name">Fei Xiang Gong</div></td>
+            <td data-label="Notes"><div class="restaurant-notes">烤串，they have a little machine that automatically rolls the meat as it cooks</div></td>
+            <td data-label="Map"><a class="map-link" href="https://maps.app.goo.gl/8rxB6tXt743yY6Z47" target="_blank" rel="noopener noreferrer">[Google Maps]</a></td>
+          </tr>
+          <tr>
+            <td data-label="Restaurant"><div class="restaurant-name">Hangari Kalguksu</div></td>
+            <td data-label="Notes"><div class="restaurant-notes">韩国刀削面</div></td>
+            <td data-label="Map"><a class="map-link" href="https://maps.app.goo.gl/8M996UDitw6MRcZ57" target="_blank" rel="noopener noreferrer">[Google Maps]</a></td>
+          </tr>
+          <tr>
+            <td data-label="Restaurant"><div class="restaurant-name">Sun Nong Dan</div></td>
+            <td data-label="Notes"><div class="restaurant-notes">Order the galbi jjim (need to bring 3-4 people), they also have branches in Sawtelle, Rowland Heights, San Gabriel</div></td>
+            <td data-label="Map"><a class="map-link" href="https://maps.app.goo.gl/LHRTCpRp3GU6Z4NQA" target="_blank" rel="noopener noreferrer">[Google Maps]</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</body>
+</html>
